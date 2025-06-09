@@ -66,17 +66,95 @@ Simply fix it, so that it works.
    npm run dev
    ```
 
-<sup>☨</sup> If you have privacy concerns with using your real GitHub account
-please use a throwaway account instead and let us know the username.
+---
 
-### 📥 Submission procedure
+# Changes Made and Details on Implementation
 
-We are big on async written communication here at YunoJuno - we need people that
-can communicate their changes well to people who are not necessarily in the
-same room as them over the internet. This is definitely something we pay
-attention to and expect on the job.
+### Goals:
 
-1. Make your code changes.
-1. Push to your fork.
-1. Open a Pull Request against this repo, and describe your change.
-1. Confirm with us that you have done so, stating your GitHub username.
+1. Update made to Redux store, creating a single, central store
+2. Multiple changes and updates to the design and functionality of the Dashboard (and other areas)
+3. Users can now use a dropdown on the Dashboard page to update their availabilty, which does so instantly, as well as in the side navbar
+
+(See further details on other changes made below, as well as thoughts and any improvemnts/changes I would make)
+
+### UI/UX
+
+- **Modernized**
+
+  - Added custom SVG 'FreelancerHub' logo with gradient design (based on YunoJuno's real logo, but kept the FreelancerHub theme)
+  - Added Heroicons alongside page routes
+  - Updated/added extra color schemes (uses mostly indigo-900 as primary color, as well as red-600 for app name - could be improved to have fewer colors, and stick to a more consistent theme throughout)
+  - Now has hover effects and transitions
+  - Added animations with timeouts to ensure clarity on Availability status being updated successfully
+
+- **WorkStatusCard Enhancements**
+
+  - Uses status buttons with modern styling and emojis (kept in a consts file for reusability)
+  - Animated status updates
+  - Slight improvements on layout and spacing
+  - improved color contrast and accessibility (though this could be an area for further improvement)
+
+- **UserAvatar Improvements**
+  - Uses a fixed-width to prevent layout shifts
+  - Centered dropdown menu
+  - Text truncation, if needed for longer statuses - though tried to keep them short enough to be within view
+  - Changed text label/descriptions around Availability
+  - User can click outside to close the dropdown
+
+### State Management
+
+- Now uses a centralized store using `combineSlices` - this approach should allow for any future state management additions more easily
+- Removed previous stores under individual components
+- Ensures type-safe hooks and actions
+- Efficient state updates
+- Status notification system also added to allow for clear message that the status update was successful
+
+### Component Structure
+
+- **Navigation**
+
+  - Updated sidebar with Heroicons
+  - UserAvatar updated
+  - More responsive/modern layout
+
+- **Dashboard**
+  - Chose to add the UserAvatar component to Header area, for improved UX (easier for users to find and interact with)
+  - Cleaner UI
+
+### General Styling
+
+- Included custom animations with Framer Motion when status has changed
+- Changed the colors of multiple components, and attempted to keep a consistent look (could be improved)
+
+### Colors
+
+- Primary: indigo-900 (#312E81) - tried to match YunoJuno's color scheme as best as I could
+- Accent: Various indigo shades
+- Text: Gray scale (as originally implemented)
+- Status: Green for success - added when Availability has successfully been updated in WorkStatusCard
+- Other: Blues (as originally implemented, added in other areas)
+
+### Other
+
+- Added extra mock users for extra manual testing
+
+### Potential Future Improvements
+
+- Definitely include solid testing - both unit and integration tests, potentially Cypress for E2E frontend flow
+- Implement light/dark mode toggle feature
+- Add more micro-frontend features(?)
+- Enhance animation system - if in alignment with branding and overall design
+- Add user preferences / settings link and page
+- Ensure it's mobile, tablet, and web-friendly
+- Further improvements around accessibility features (such as elements to improve experience if using screen readers)
+- Have and stick to a color scheme and design - I may have gotten slightly carried away with changing colors (and other small style changes) in other areas of the app(!)
+- Potentially use a component library - if this would improve styling and consistent layout
+- Made attempt to add a 'brand color' in Tailwind, but was unsuccessful, so stuck with a pre-defined color that was as close as possible
+- If any functionality is used in multiple areas, add a utils section for ease of reusability, as well as unit testing
+- Add .env file for any private data - 3rd party App IDs and secret keys etc
+
+## New Dependencies added
+
+- Framer Motion
+- Heroicons

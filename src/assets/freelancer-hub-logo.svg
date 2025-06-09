@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="brand-gradient" x1="10" y1="0" x2="30" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFA288"/>
+      <stop offset="100%" stop-color="#FF5D87"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background Circle with Gradient -->
+  <circle cx="20" cy="20" r="20" fill="url(#brand-gradient)"/>
+  
+  <!-- F Letter -->
+  <path d="M15 12H25M15 12V28M15 19H23" 
+        stroke="white" 
+        stroke-width="3" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+        
+  <!-- Decorative dot -->
+  <circle cx="25" cy="28" r="2" fill="white"/>
+</svg> 

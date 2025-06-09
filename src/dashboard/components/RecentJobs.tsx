@@ -27,8 +27,8 @@ export const RecentJobs = ({ className = "" }: { className?: string }) => {
   ];
 
   return (
-    <div className={`bg-white rounded-lg shadow-sm p-6 ${className}`}>
-      <h3 className="text-lg font-medium mb-4 pb-3 border-b border-gray-200">
+    <div className={`bg-white rounded-lg shadow-sm p-6 border border-rose-100 ${className}`}>
+      <h3 className="text-lg text-blue-900 font-bold mb-2 pb-2 border-b border-gray-200">
         Recent Job Matches
       </h3>
       <div className="py-2">
@@ -36,10 +36,10 @@ export const RecentJobs = ({ className = "" }: { className?: string }) => {
           {recentJobs.map((job) => (
             <li
               key={job.id}
-              className="flex justify-between py-4 border-b border-gray-200 last:border-b-0"
+              className="flex justify-between py-2 border-b border-gray-200 last:border-b-0"
             >
               <div>
-                <h4 className="text-base font-medium mb-2">{job.title}</h4>
+                <h4 className="text-blue-800 font-medium mb-2">{job.title}</h4>
                 <p className="text-gray-500 text-sm mb-2">{job.company}</p>
                 <p className="flex text-sm">
                   <span className="text-green-600 font-medium mr-4">
